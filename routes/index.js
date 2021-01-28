@@ -18,6 +18,8 @@ router.get('/', function(req, res, next) {
 bot.onText(/\/verifyme/, (msg, match) => {
   let captcha = new Captcha();
 
+  console.log(captcha);
+
   let string = captcha.dataURL;
 
   var regex = /^data:.+\/(.+);base64,(.*)$/;
