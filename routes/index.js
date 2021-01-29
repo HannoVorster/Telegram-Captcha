@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
+//CONFIG FILE...
+var config = require('../config');
 
 const Captcha = require("@haileybot/captcha-generator");
 
 const TelegramBot = require('node-telegram-bot-api');
-// replace the value below with the Telegram token you receive from @BotFather
-const token = '1536137663:AAFADkosDLUqzs49t_fgHTIZVFQgZOSWwaQ';
-// Create a bot that uses 'polling' to fetch new updates
+const token = config.telegram.token;
 const bot = new TelegramBot(token, {polling: true});
 
 /* GET home page. */
@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// Matches "/echo [whatever]"
 bot.onText(/\/verifyme/, (msg, match) => {
   let captcha = new Captcha();
 
