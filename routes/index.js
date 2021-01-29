@@ -71,13 +71,12 @@ bot.onText(/\/verifyme/, (msg, match) => {
   }
 });
 
-// Handle callback queries
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
   const action = callbackQuery.data;
   const msg = callbackQuery.message;
   const opts = {
-      chat_id: msg.chat.id,
-      message_id: msg.message_id,
+    chat_id: msg.chat.id,
+    message_id: msg.message_id,
   };
   let text;
 
@@ -86,8 +85,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 
   if (action === correctValue) {
     text = "Correct! You are verified!";
-  }
-  else {
+  } else {
     text = "Failed! DENIED ACCESS!";
   }
 
@@ -108,14 +106,10 @@ function shuffle(array) {
   var currentIndex = array.length,
     temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
-    // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
-    // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
