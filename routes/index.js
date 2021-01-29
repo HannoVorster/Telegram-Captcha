@@ -13,13 +13,6 @@ const bot = new TelegramBot(token, {
 
 let correctValue;
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: 'Express'
-  });
-});
-
 bot.onText(/\/test/, (msg) => {
   bot.sendMessage(msg.chat.id, "I'm a test robot");
 });
